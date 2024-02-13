@@ -1,0 +1,942 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+:root {
+    --black: #000;
+    --white: #F1EDE6;
+    --white50: #f1ede62a;
+}
+
+html {
+    cursor: url('./Ressources/img/astronaut.png');
+}
+
+body {
+    background-color: var(--black);
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -moz-overflow-style: none;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+a {
+    text-decoration: none;
+}
+
+.italic {
+    font-style: italic;
+}
+
+/* ************* NAVBAR ************* */
+
+nav {
+    top: 0;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    background-image: linear-gradient(180deg, #000 0%, transparent 100%);
+}
+
+nav ul {
+    display: flex;
+    padding: 2rem 7rem;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+}
+
+#navlinks {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 20rem;
+    color: var(--white);
+}
+
+#hamburger {
+    display: none;
+}
+
+/* ************* Responsive Navbar ************* */
+
+@media screen and (max-width: 1000px) {
+
+    nav ul {
+        margin: 30px;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 730px) {
+
+    nav ul>div {
+        position: absolute;
+        flex-direction: column;
+        right: -100%;
+        top: 0;
+        transition: 0.2s;
+        text-align: right;
+        background-color: #000;
+        padding: 0 5%;
+    }
+
+    #navlinks {
+        width: 25%;
+        min-width: 130px;
+    }
+
+    #navlinks li {
+        position: relative;
+        margin-top: 20px;
+        top: 100px;
+    }
+
+    .open {
+        right: 0;
+        padding-bottom: 100vh;
+    }
+
+    .logo {
+        width: 50px;
+    }
+
+    #hamburger {
+        display: flex;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0);
+        align-items: center;
+    }
+
+    #hamburger span {
+        width: 100%;
+        height: 2px;
+        background-color: #EEEEEE;
+        position: absolute;
+        pointer-events: none;
+        transition: opacity 0.3s 0.15s ease-out;
+    }
+
+    #hamburger span:nth-child(1) {
+        transform: translateY(7px);
+    }
+
+    #hamburger span:nth-child(3) {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* ************ PAGE D'ACCUEIL ************ */
+
+
+.box-title {
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column-reverse;
+    color: var(--white);
+}
+
+h1.website-title {
+    text-align: right;
+    text-shadow: 0px 30px 50px rgba(0, 0, 0, 0.75);
+    font-size: 12.5rem;
+    font-weight: 700;
+    line-height: 103.5%;
+    text-transform: uppercase;
+    margin: 5%;
+    color: var(--white);
+}
+
+h2 {
+    text-shadow: 0px 30px 50px rgba(0, 0, 0, 0.75);
+    font-size: 6.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+p {
+    text-shadow: 0px 30px 50px rgba(0, 0, 0, 0.75);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.125rem;
+    font-style: normal;
+    z-index: 6;
+    margin-bottom: 1rem;
+    text-align: justify;
+    color: var(--white);
+}
+
+a.text {
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    background-image: linear-gradient(180deg, transparent 95%, #ffffff 0);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size .3s ease;
+    text-shadow: 0px 30px 50px rgba(0, 0, 0, 0.75);
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--white);
+}
+
+a.text:hover {
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+section.about {
+    display: flex;
+    align-items: center;
+    margin: 5rem 0 3rem 7rem;
+}
+
+section.about p {
+    width: 100%;
+}
+
+section.about img {
+    animation: bouncing 10s ease infinite;
+}
+
+@keyframes bouncing {
+    0% {
+        transform: translateY(1rem);
+    }
+
+    50% {
+        transform: translateY(-1rem);
+    }
+
+    100% {
+        transform: translateY(1rem);
+    }
+}
+
+div.p-a-propos {
+    margin-bottom: 3rem;
+}
+
+a.button-start-now {
+    border: 1px solid var(--white);
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    border-radius: 15px;
+    display: block;
+    width: fit-content;
+    transition: 0.2s ease;
+    margin: 0 auto 50px auto;
+    color: var(--white);
+}
+
+a.button-start-now:hover {
+    transform: translate(0.5rem, -0.5rem);
+    box-shadow: -8px 8px 0px 0px #F1EDE6;
+    transition: 0.2s ease;
+}
+
+
+/* ----------------- code inspiré de CodePen : https://codepen.io/WebSonick/pen/nBPZZO -> BACKGROUND ETOILE ----------------- */
+
+.stars_background,
+.twinkling_background {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+}
+
+.stars_background {
+    background: var(--black) url(./Ressources/img/stars.png) repeat top center;
+    z-index: -11;
+}
+
+.twinkling_background {
+    background: transparent url(./Ressources/img/twinkling.png) repeat top center;
+    z-index: -10;
+    animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 5000px -5000px;
+    }
+}
+
+.black_opacity {
+    position: fixed;
+    z-index: -1;
+    background-color: #000;
+    opacity: 10%;
+    width: 100%;
+    height: 100%;
+}
+
+/* ---------------- système solaire ------------------ */
+
+/* animation de rotation des planètes */
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes inv-rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-90deg);
+    }
+
+    50% {
+        transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+/* style des planètes */
+
+.sun {
+    position: absolute;
+    top: 12rem;
+    left: -25rem;
+    animation: rotation 1000s linear infinite;
+    z-index: -2;
+}
+
+.mercure {
+    position: absolute;
+    top: 12rem;
+    left: 28rem;
+    animation: inv-rotation 800s linear infinite;
+    z-index: -3;
+    opacity: 75%;
+}
+
+.venus {
+    position: absolute;
+    top: 12rem;
+    left: 53rem;
+    animation: rotation 500s linear infinite;
+    z-index: -4;
+    opacity: 75%;
+}
+
+.earth {
+    position: absolute;
+    top: 10rem;
+    left: 65rem;
+    animation: inv-rotation 500s linear infinite;
+    z-index: -5;
+}
+
+.mars {
+    position: absolute;
+    top: 10rem;
+    left: 78rem;
+    animation: rotation 300s linear infinite;
+    z-index: -6;
+}
+
+.jupiter {
+    position: absolute;
+    top: 6rem;
+    left: 90rem;
+    animation: inv-rotation 700s linear infinite;
+    z-index: -7;
+}
+
+/************ Responsive Page D'accueil *************/
+
+@media screen and (max-width: 1300px) {
+    .about>img {
+        width: 600px;
+    }
+
+    h1.website-title {
+        font-size: 10rem;
+        margin: 15% 5%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .about>img {
+        display: none;
+    }
+
+    .about .text>h2 {
+        font-size: 4rem;
+    }
+
+    h1.website-title {
+        font-size: 8rem;
+        margin: 25% 5%;
+    }
+
+    section.about {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    h1.website-title {
+        font-size: 4rem;
+        text-align: center;
+        margin: 50% 0;
+    }
+
+    .about .text>h2 {
+        font-size: 2rem;
+    }
+
+    .about .p-a-propos>p {
+        font-size: 1rem;
+    }
+
+    a.button-start-now {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ****************** PAGE DISPLAY ****************** */
+
+main.carousel_and_title {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 50rem;
+    color: var(--white);
+}
+
+h1.title {
+    text-shadow: 0px 30px 50px rgba(0, 0, 0, 0.75);
+    font-size: 6.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 17.5vw;
+    margin-bottom: 1rem;
+    margin-top: 10rem;
+    color: var(--white);
+}
+
+div.link_go_back {
+    padding-top: 10rem;
+    margin-left: 7rem;
+}
+
+div.carousel-arrow {
+    display: flex;
+    align-items: center;
+}
+
+svg.arrow {
+    position: absolute;
+    z-index: 2;
+}
+
+svg.arrow path {
+    width: 6vw;
+    transition: 0.2s ease;
+}
+
+svg.arrow:hover path {
+    fill: var(--white50);
+    /* cursor: none; */
+    transition: 0.2s ease;
+}
+
+svg.arrow-left {
+    transform: rotate(180deg);
+    left: 7%;
+}
+
+svg.arrow-right {
+    right: 7%;
+}
+
+section.carousel {
+    width: 65vw;
+    height: fit-content;
+    overflow: hidden;
+    margin: auto;
+}
+
+.carousel-elements {
+    display: flex;
+    gap: 2vw;
+    width: fit-content;
+    margin-top: 2rem;
+}
+
+.carousel-elements .element {
+    width: calc(((65vw - 4vw) / 3) - 2px);
+    height: 75vh;
+    max-height: 30rem;
+    border: 1px solid var(--white);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-elements .element .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 40%;
+    border: 3px solid rgba(241, 237, 230, 0.05);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    transform: translateY(1.5rem);
+    padding: 1.5rem;
+    color: var(--white);
+}
+
+.carousel-elements .element .text h2 {
+    text-shadow: 0px 30px 50px rgba(0, 0, 0, 0.75);
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 103.5%;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--white);
+}
+
+a.button-see-more {
+    border: 1px solid var(--white);
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 10px;
+    display: block;
+    width: fit-content;
+    transition: 0.2s ease;
+    margin-top: 0.5rem;
+    color: var(--white);
+}
+
+a.button-see-more:hover {
+    transform: translate(0.5rem, -0.5rem);
+    box-shadow: -8px 8px 0px 0px #F1EDE6;
+    transition: 0.2s ease;
+}
+
+.carousel .element#sun {
+    background: url(./Ressources/img/medium/sun.png) no-repeat right/cover;
+    background-position: calc(100% - 1rem);
+    background-size: 160%;
+}
+
+.carousel .element#mercury {
+    background: url(./Ressources/img/medium/mercure.png) no-repeat right/cover;
+    background-position: calc(100% - 3rem);
+    background-size: 130%;
+}
+
+.carousel .element#venus {
+    background: url(./Ressources/img/medium/venus.png) no-repeat right/cover;
+    background-position: calc(100% - 3rem);
+    background-size: 130%;
+}
+
+.carousel .element#earth {
+    background: url(./Ressources/img/medium/earth.png) no-repeat right/cover;
+    background-position: calc(100% - 3rem);
+    background-size: 130%;
+}
+
+.carousel .element#mars {
+    background: url(./Ressources/img/medium/mars.png) no-repeat right/cover;
+    background-position: calc(100% - 3rem);
+    background-size: 130%;
+}
+
+.carousel .element#jupiter {
+    background: url(./Ressources/img/medium/jupiter.png) no-repeat right/cover;
+    background-position: calc(100% - 3rem);
+    background-size: 130%;
+}
+
+.carousel .element#saturn {
+    background: url(./Ressources/img/medium/saturne.png) no-repeat right/cover;
+    background-position: calc(100% + 10rem);
+    background-size: 300%;
+}
+
+.carousel .element#uranus {
+    background: url(./Ressources/img/medium/uranus.png) no-repeat right/cover;
+    background-position: calc(100% - 3rem);
+    background-size: 130%;
+}
+
+.carousel .element#neptune {
+    background: url(./Ressources/img/medium/neptune.png) no-repeat right/cover;
+    background-position: calc(100% - 7rem);
+    /* décalage de 2rem vers la droite */
+    background-size: 130%;
+}
+
+/* ****************** Responsive Page Display (les planètes) ****************** */
+
+@media screen and (max-width: 1400px) {
+    section.carousel {
+        width: 50vw;
+    }
+
+    .carousel-elements .element {
+        width: calc(46vw * 0.50);
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    .carousel-elements .element .text h2 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    section.carousel {
+        width: 50vw;
+    }
+
+    .carousel-elements .element {
+        width: 49vw;
+    }
+
+    svg.arrow {
+        width: 10vw;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    svg.arrow {
+        width: 10vw;
+    }
+
+    h1.title {
+        font-size: 4rem;
+        margin-left: 10vw;
+    }
+
+    section.carousel {
+        width: 75vw;
+    }
+
+    .carousel-elements .element {
+        width: 74vw;
+    }
+
+    .carousel-elements .element {
+        height: 55vh;
+    }
+}
+
+/* ******************* PAGE CALENDRIER ****************** */
+
+.big-container {
+    margin: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.table-container {
+    max-width: 700px;
+    max-height: 700px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.calendrier {
+    margin: auto;
+    border: none;
+    background: #F1EDE6;
+    padding: 2em;
+    width: 100%;
+}
+
+.calendrier caption {
+    height: 30%;
+    background: #10100E;
+    color: #F1EDE6;
+    text-align: left;
+    padding: 10% 5% 2% 5%;
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+.calendrier tbody {
+    height: 500px;
+}
+
+.calendrier th {
+    text-transform: uppercase;
+    color: #10100E;
+    font-weight: 500;
+}
+
+.calendrier td {
+    padding: 4%;
+    color: #10100E;
+}
+
+.calendrier td,
+.calendrier th {
+    text-align: center;
+    padding: 0.8em;
+}
+
+.mois {
+    font-size: 1.5em;
+    display: block;
+    padding: 0;
+    line-height: 0.7;
+}
+
+.annee {
+    font-size: 0.5em;
+}
+
+.flou {
+    color: #a4a4a4;
+}
+
+.day {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    padding: .5em;
+    border-radius: 100%;
+    transition: all .4s;
+}
+
+.day:hover {
+    background: #000;
+    cursor: pointer;
+    color: #F1EDE6;
+}
+
+.evenement {
+    background: transparent url(./Ressources/img/moon3.png) no-repeat right/cover;
+    background-size: 80%;
+    background-position: center;
+    background-color: transparent;
+}
+
+.evenement span {
+    color: black;
+}
+
+.popup {
+    position: absolute;
+    width: 250px;
+    background-color: #10100E;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    visibility: hidden;
+}
+
+.evenement:hover .popup {
+    visibility: visible;
+    color: white;
+}
+
+.definitions {
+    width: 100%;
+    margin: 2%;
+    border-radius: 30px;
+    background-color: #F1EDE6;
+    padding: 10px;
+}
+
+.definitions ul {
+    text-align: left;
+    margin: 1%;
+    color: #10100E;
+    list-style: none;
+}
+
+
+/************ Responsive Page Calendrier *************/
+
+@media screen and (min-width: 375px) and (max-width: 730px) {
+    .table-container {
+        min-width: fit-content;
+        max-width: fit-content;
+    }
+
+    .calendrier {
+        min-width: fit-content;
+        max-width: fit-content;
+    }
+
+    .big-container {
+        min-width: fit-content;
+        max-width: fit-content;
+    }
+}
+
+/* *************** PAGE D'AFFICHAGE D'UNE PLANETE *************** */
+
+.btn-back {
+    position: relative;
+    top: 150px;
+    left: 7rem;
+    color: var(--white);
+}
+
+.img-planet {
+    position: absolute;
+    width: calc(50vw + 100vw - 90%);
+    left: -30%;
+    top: 30%;
+    animation: rotation 1000s linear infinite;
+}
+
+img.saturn {
+    animation: none !important;
+}
+
+
+.block-property {
+    width: 40vw;
+    min-width: 500px;
+    padding: 0 5% 2% 5%;
+    border-radius: 25px;
+    border: solid 2px var(--white);
+    margin: 200px 5% 5% 150px;
+    float: right;
+    align-items: center;
+}
+
+.block-title {
+    background-color: var(--black);
+    width: fit-content;
+    padding: 0 3%;
+    position: relative;
+    left: 45%;
+    top: -30px;
+    text-align: right;
+    color: var(--white);
+}
+
+.display-title-fr {
+    font-size: 3rem;
+}
+
+.property {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.property .key {
+    min-width: fit-content;
+    margin: 0;
+}
+
+.property .value {
+    min-width: fit-content;
+    margin: 0;
+}
+
+.lines {
+    width: 100%;
+    border-bottom: dashed 1px var(--white);
+    margin: 0 1rem;
+    stroke-linecap: round;
+    stroke-dasharray: 13 13;
+}
+
+/* *************** Responsive Page D'affichage D'une Planète *************** */
+
+@media screen and (max-width: 1000px) {
+    .btn-back {
+        left: 17%;
+    }
+
+    .img-planet {
+        display: none;
+    }
+
+    .block-property {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 250px;
+        width: 60vw;
+        min-width: 300px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .block-title {
+        left: 45%;
+    }
+
+    .display-title-fr {
+        font-size: 2rem;
+    }
+
+    .value,
+    .key {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
